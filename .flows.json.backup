@@ -1,0 +1,242 @@
+[
+    {
+        "id": "6fe80805fbb17033",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6d0851f001262095",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c2f890651ee0379d",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f8eb3f29efe06a25",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7afce28cd3a29ed9",
+        "type": "http in",
+        "z": "6fe80805fbb17033",
+        "name": "Receive Telemetry",
+        "url": "/api/sensor",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 259,
+        "y": 151,
+        "wires": [
+            [
+                "efbe1c532bd36507",
+                "46d776a883f9358c"
+            ]
+        ]
+    },
+    {
+        "id": "efbe1c532bd36507",
+        "type": "http response",
+        "z": "6fe80805fbb17033",
+        "name": "Response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 559,
+        "y": 151,
+        "wires": []
+    },
+    {
+        "id": "46d776a883f9358c",
+        "type": "debug",
+        "z": "6fe80805fbb17033",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 559,
+        "y": 271,
+        "wires": []
+    },
+    {
+        "id": "8220b87ef4ad7ac1",
+        "type": "http in",
+        "z": "6d0851f001262095",
+        "name": "Receive Telemetry",
+        "url": "/api/sensor",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "f28ae860eefbfe5c",
+                "8ed0554672dd2144"
+            ]
+        ]
+    },
+    {
+        "id": "f28ae860eefbfe5c",
+        "type": "http response",
+        "z": "6d0851f001262095",
+        "name": "Response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 740,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "93e26b9331333a1f",
+        "type": "debug",
+        "z": "6d0851f001262095",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8ed0554672dd2144",
+        "type": "function",
+        "z": "6d0851f001262095",
+        "name": "function 1",
+        "func": "msg.ip = msg.req.socket.remoteAddress;\nmsg.contentType = msg.req.headers[\"content-type\"];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "93e26b9331333a1f"
+            ]
+        ]
+    },
+    {
+        "id": "63e8c7ea540f7fa0",
+        "type": "http in",
+        "z": "c2f890651ee0379d",
+        "name": "Receive Telemetry",
+        "url": "/api/sensor/:id",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "5b4ecd22782ba401",
+                "9c66981ee7f5e959"
+            ]
+        ]
+    },
+    {
+        "id": "5b4ecd22782ba401",
+        "type": "http response",
+        "z": "c2f890651ee0379d",
+        "name": "Response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 740,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "9c66981ee7f5e959",
+        "type": "debug",
+        "z": "c2f890651ee0379d",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "64e223480b370ae4",
+        "type": "http in",
+        "z": "f8eb3f29efe06a25",
+        "name": "Receive Telemetry",
+        "url": "/api/telemetry",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 169,
+        "y": 105,
+        "wires": [
+            [
+                "dbe71f90caf23f96",
+                "0c7c229e79366cbb"
+            ]
+        ]
+    },
+    {
+        "id": "dbe71f90caf23f96",
+        "type": "http response",
+        "z": "f8eb3f29efe06a25",
+        "name": "Response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 729,
+        "y": 105,
+        "wires": []
+    },
+    {
+        "id": "0c7c229e79366cbb",
+        "type": "debug",
+        "z": "f8eb3f29efe06a25",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 469,
+        "y": 225,
+        "wires": []
+    }
+]
